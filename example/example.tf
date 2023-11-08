@@ -47,7 +47,7 @@ module "droplet" {
 ## Load Balancer module call
 ##------------------------------------------------
 module "load-balancer" {
-  source      = "./../../"
+  source      = "./../"
   name        = local.name
   environment = local.environment
   region      = local.region

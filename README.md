@@ -14,9 +14,9 @@
 This Terraform configuration is designed to create and manage a DigitalOcean load-balancer.
 
 ## Usage
-To use this module, you should have Terraform installed and configured for DIGITALOCEAN. This module provides the necessary Terraform configuration for creating DIGITALOCEAN resources, and you can customize the inputs as needed. Below is an example of how to use this module:
+To use this module, you should have Terraform installed and configured for DigitalOcean. This module provides the necessary Terraform configuration for creating DigitalOcean resources, and you can customize the inputs as needed. Below is an example of how to use this module:
 
-- #  example: basic
+#  Example:
 You can use this module in your Terraform configuration like this:
 
 ```hcl
@@ -47,63 +47,6 @@ module "load-balancer" {
 }
 ```
 Please replace "your_database_cluster_id" with the actual ID of your DigitalOcean  lb, and adjust the lb rules as needed.
-
-
-- # example: mig mysql
-You can use this module in your Terraform configuration like this:
-```hcl
-module "load-balancer" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-load-balancer.git?ref=v1.0.0"
-  name        = local.name
-  environment = local.environment
-  region      = local.region
-  vpc_uuid    = module.vpc.id
-  droplet_ids = module.droplet.id
-
-  enabled_redirect_http_to_https = false
-  forwarding_rule = [
-    {
-      protocol    = "http"
-      port        = 80
-      target      = "droplet-1"
-      target_port = 8080
-    },
-    {
-      protocol    = "https"
-      port        = 443
-      target      = "droplet-2"
-      target_port = 8443
-    }
-  ]
-
-  healthcheck = [
-    {
-      port                     = 80
-      protocol                 = "http"
-      check_interval_seconds   = 10
-      response_timeout_seconds = 5
-      unhealthy_threshold      = 3
-      healthy_threshold        = 5
-    }
-  ]
-  sticky_sessions = [
-    {
-      type               = "cookies"
-      cookie_name        = "lb-cookie"
-      cookie_ttl_seconds = 300
-    }
-  ]
-
-  firewall = [
-    {
-      deny  = "cidr:0.0.0.0/0"
-      allow = "cidr:143.244.136.144/32"
-    }
-  ]
-
-}
-```
-This example demonstrates how to create various DIGITALOCEAN resources using the provided modules. Adjust the input values to suit your specific requirements.
 
 
 ## Module Inputs
