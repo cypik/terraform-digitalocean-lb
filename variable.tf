@@ -40,12 +40,6 @@ variable "algorithm" {
   description = "The load balancing algorithm used to determine which backend Droplet will be selected by a client."
 }
 
-variable "enable_redirect_http_to_https" {
-  type        = bool
-  default     = false
-  description = "A boolean value indicating whether HTTP requests to the Load Balancer on port 80 will be redirected to HTTPS on port 443. Default value is false."
-}
-
 variable "enable_proxy_protocol" {
   type        = bool
   default     = false
@@ -63,12 +57,6 @@ variable "http_idle_timeout_seconds" {
   default     = null
   description = "Specifies the idle timeout for HTTPS connections on the load balancer in seconds."
 }
-
-#variable "disable_lets_encrypt_dns_records" {
-#  type        = string
-#  default     = ""
-#  description = "A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer. Default value is false."
-#}
 
 variable "project_id" {
   type        = string

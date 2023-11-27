@@ -91,7 +91,7 @@ module "load-balancer" {
 
   firewall = [
     {
-#      deny  = "cidr:0.0.0.0/0"
+      #      deny  = "cidr:0.0.0.0/0"
       allow = "cidr:0.0.0.0/0"
     }
   ]
