@@ -16,12 +16,12 @@ This Terraform configuration is designed to create and manage a DigitalOcean loa
 ## Usage
 To use this module, you should have Terraform installed and configured for DigitalOcean. This module provides the necessary Terraform configuration for creating DigitalOcean resources, and you can customize the inputs as needed. Below is an example of how to use this module:
 
-#  Example:
+#  Example: 
 You can use this module in your Terraform configuration like this:
 
 ```hcl
 module "load-balancer" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-load-balancer.git?ref=v1.0.0"
+  source      = "git::https://github.com/cypik/terraform-digitalocean-load-balancer.git?ref=v1.0.0"
   name        = local.name
   environment = local.environment
   region      = local.region
@@ -74,10 +74,10 @@ This module does not produce any outputs. It is primarily used for labeling reso
 
 
 ## Examples
-For detailed examples on how to use this module, please refer to the 'examples' directory within this repository.
+For detailed examples on how to use this module, please refer to the '[examples](https://github.com/cypik/terraform-digitalocean-lb/blob/master/example)' directory within this repository.
 
 ## License
-This Terraform module is provided under the '[License Name]' License. Please see the [LICENSE](https://github.com/opz0/terraform-digitalocean-lb/blob/master/LICENSE) file for more details.
+This Terraform module is provided under the '[License Name]' License. Please see the [LICENSE](https://github.com/cypik/terraform-digitalocean-lb/blob/master/LICENSE) file for more details.
 
 ## Author
 Your Name

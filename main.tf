@@ -1,5 +1,5 @@
 module "labels" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-labels.git?ref=v1.0.0"
+  source      = "git::https://github.com/cypik/terraform-digitalocean-labels.git?ref=v1.0.0"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby
@@ -18,7 +18,7 @@ resource "digitalocean_loadbalancer" "main" {
   enable_proxy_protocol            = var.enable_proxy_protocol
   enable_backend_keepalive         = var.enable_backend_keepalive
   http_idle_timeout_seconds        = var.http_idle_timeout_seconds
-  disable_lets_encrypt_dns_records = var.disable_lets_encrypt_dns_records
+  disable_lets_encrypt_dns_records = var.enabled_redirect_http_to_https
   project_id                       = var.project_id
   vpc_uuid                         = var.vpc_uuid
   droplet_ids                      = var.droplet_ids
