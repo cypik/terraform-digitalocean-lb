@@ -13,7 +13,7 @@ variable "environment" {
 variable "label_order" {
   type        = list(any)
   default     = ["name", "environment"]
-  description = "Label order, e.g. `name`,`application`."
+  description = "Label order, e.g. `cypik`,`application`."
 }
 
 variable "region" {
@@ -103,8 +103,8 @@ variable "sticky_sessions" {
 
 variable "managedby" {
   type        = string
-  default     = "terraform-do-modules"
-  description = ""
+  default     = "cypik"
+  description = "ManagedBy, eg 'cypik'"
 }
 
 variable "enabled" {

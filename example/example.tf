@@ -1,7 +1,7 @@
 provider "digitalocean" {}
 
 locals {
-  name        = "app"
+  name        = "cypik"
   environment = "test"
   region      = "blr1"
 }
@@ -10,7 +10,8 @@ locals {
 ## VPC module call
 ##------------------------------------------------
 module "vpc" {
-  source      = "git::https://github.com/cypik/terraform-digitalocean-vpc.git?ref=v1.0.0"
+  source      = "cypik/vpc/digitalocean"
+  version     = "1.0.1"
   name        = local.name
   environment = local.environment
   region      = local.region
@@ -21,13 +22,14 @@ module "vpc" {
 ## Droplet module call
 ##------------------------------------------------
 module "droplet" {
-  source        = "git::https://github.com/cypik/terraform-digitalocean-droplet.git?ref=v1.0.0"
+  source        = "cypik/droplet/digitalocean"
+  version       = "1.0.1"
   droplet_count = 2
   name          = local.name
   environment   = local.environment
   region        = local.region
   vpc_uuid      = module.vpc.id
-  ssh_key       = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjrNE0k5e4YOHAUoqffU8u/Yw++wYT2yhIru8e1MfNbimg/NuiVu2rFLZezg7A1q0HcRWfAmTo8TDISAtiyEoy8ZJ6A2mn2bJWQmd5mSixm6J1jBBaYY5FhdVU28KW/GrRxyQD94JtPtMhUGV8FJlm8FJUXgH12Xf8v/dCG/ETG1+u/S22/v+Ph1SjNNdtGoj+Optshts4ukYcXRo2gqtPak6v1TlndLJrKYvs5MPhxR7D6geAQlS9njaiIyjJhxm1wzOFKBu4Pvm2wEYDxgNEfcc14EiRxWMRk1gPdj8srDW1gKRh0BV4nvpTJ9GEyVlxNOzsy5mWkKEpPQyE6kQxMl8znMurJqi8kPCoS9rLrjL/zb2cCLjc2olcuojMc9s3NFfPz75rt8h4CGwKMtuuwRu7xTKiSfBgmhmmv/w7YhI0Y009msq2R/XEDR50QeCkOgGNhDakpR8d0olkUTedzTw3G5LYm4JwBEHrDhHJLeatqCXSZ1HYB/3O3FZdP3E= baldev@baldev"
+  ssh_key       = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjrNE0k5e4"
   user_data     = file("user-data.sh")
 
   inbound_rules = [
