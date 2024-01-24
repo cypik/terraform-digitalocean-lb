@@ -71,7 +71,7 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.34.1 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 2.34.1 |
 
 ## Modules
 
