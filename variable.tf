@@ -13,7 +13,7 @@ variable "environment" {
 variable "label_order" {
   type        = list(any)
   default     = ["name", "environment"]
-  description = "Label order, e.g. `name`,`application`."
+  description = "Label order, e.g. `cypik`,`application`."
 }
 
 variable "region" {
@@ -40,12 +40,6 @@ variable "algorithm" {
   description = "The load balancing algorithm used to determine which backend Droplet will be selected by a client."
 }
 
-#variable "enable_redirect_http_to_https" {
-#  type        = bool
-#  default     = false
-#  description = "A boolean value indicating whether HTTP requests to the Load Balancer on port 80 will be redirected to HTTPS on port 443. Default value is false."
-#}
-
 variable "enable_proxy_protocol" {
   type        = bool
   default     = false
@@ -62,12 +56,6 @@ variable "http_idle_timeout_seconds" {
   type        = number
   default     = null
   description = "Specifies the idle timeout for HTTPS connections on the load balancer in seconds."
-}
-
-variable "disable_lets_encrypt_dns_records" {
-  type        = bool
-  default     = false
-  description = "A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer. Default value is false."
 }
 
 variable "project_id" {
@@ -115,16 +103,9 @@ variable "sticky_sessions" {
 
 variable "managedby" {
   type        = string
-  default     = "terraform-do-modules"
-  description = ""
+  default     = "cypik"
+  description = "ManagedBy, eg 'cypik'"
 }
-
-
-#variable "size" {
-#  type        = string
-#  default     = ""
-#  description = "The size of the Load Balancer. It must be either lb-small, lb-medium, or lb-large. Defaults to lb-small. Only one of size or size_unit may be"
-#}
 
 variable "enabled" {
   type        = bool
@@ -132,11 +113,18 @@ variable "enabled" {
   description = "Whether to create the resources. Set to `false` to prevent the module from creating any resources."
 }
 
+variable "disable_lets_encrypt_dns_records" {
+  type        = bool
+  default     = false
+  description = "A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer. Default value is false."
+}
+
 variable "firewall" {
   type        = list(map(string))
   default     = []
   description = "A block containing rules for allowing/denying traffic to the Load Balancer."
 }
+
 variable "enabled_redirect_http_to_https" {
   type    = string
   default = ""
