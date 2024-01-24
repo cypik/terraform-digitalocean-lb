@@ -1,6 +1,7 @@
 # Terraform-digitalocean-load-balancer
 # Terraform DigitalOcean cloud load-balancer Module
 
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -69,7 +70,7 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 2.34.1 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.34.1 |
 
 ## Modules
 
@@ -101,7 +102,7 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 | <a name="input_http_idle_timeout_seconds"></a> [http\_idle\_timeout\_seconds](#input\_http\_idle\_timeout\_seconds) | Specifies the idle timeout for HTTPS connections on the load balancer in seconds. | `number` | `null` | no |
 | <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `cypik`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
 | <a name="input_lb_size"></a> [lb\_size](#input\_lb\_size) | The size of the Load Balancer. It must be either lb-small, lb-medium, or lb-large. Defaults to lb-small. Only one of size or size\_unit may be provided. | `string` | `"lb-small"` | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | n/a | `string` | `"cypik"` | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'cypik' | `string` | `"cypik"` | no |
 | <a name="input_name"></a> [name](#input\_name) | The Load Balancer name | `string` | `""` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. | `string` | `null` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region to start in | `string` | `"blr-1"` | no |
