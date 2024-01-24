@@ -26,8 +26,6 @@ resource "digitalocean_loadbalancer" "main" {
   droplet_tag                      = var.droplet_tag
 
 
-
-
   dynamic "firewall" {
     for_each = var.firewall
     content {

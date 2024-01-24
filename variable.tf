@@ -124,6 +124,7 @@ variable "firewall" {
   default     = []
   description = "A block containing rules for allowing/denying traffic to the Load Balancer."
 }
+
 variable "enabled_redirect_http_to_https" {
   type    = string
   default = ""

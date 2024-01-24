@@ -71,7 +71,7 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 2.34.1 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.34.1 |
 
 ## Modules
 
@@ -90,6 +90,7 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_algorithm"></a> [algorithm](#input\_algorithm) | The load balancing algorithm used to determine which backend Droplet will be selected by a client. | `string` | `"round_robin"` | no |
+| <a name="input_disable_lets_encrypt_dns_records"></a> [disable\_lets\_encrypt\_dns\_records](#input\_disable\_lets\_encrypt\_dns\_records) | A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer. Default value is false. | `bool` | `false` | no |
 | <a name="input_droplet_ids"></a> [droplet\_ids](#input\_droplet\_ids) | A list of the IDs of each droplet to be attached to the Load Balancer. | `list(string)` | `[]` | no |
 | <a name="input_droplet_tag"></a> [droplet\_tag](#input\_droplet\_tag) | The name of a Droplet tag corresponding to Droplets to be assigned to the Load Balancer. | `string` | `null` | no |
 | <a name="input_enable_backend_keepalive"></a> [enable\_backend\_keepalive](#input\_enable\_backend\_keepalive) | A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets. Default value is false. | `bool` | `false` | no |
