@@ -113,6 +113,12 @@ variable "enabled" {
   description = "Whether to create the resources. Set to `false` to prevent the module from creating any resources."
 }
 
+variable "disable_lets_encrypt_dns_records" {
+  type        = bool
+  default     = false
+  description = "A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer. Default value is false."
+}
+
 variable "firewall" {
   type        = list(map(string))
   default     = []
