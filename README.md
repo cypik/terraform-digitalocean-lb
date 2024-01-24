@@ -20,6 +20,7 @@ To use this module, you should have Terraform installed and configured for Digit
 
 
 ```hcl
+
 module "load-balancer" {
   source      = "cypik/load-balancer/digitalocean"
   version     = "1.0.1"
