@@ -34,12 +34,6 @@ variable "lb_size" {
   description = "The size of the Load Balancer. It must be either lb-small, lb-medium, or lb-large. Defaults to lb-small. Only one of size or size_unit may be provided."
 }
 
-variable "algorithm" {
-  type        = string
-  default     = "round_robin"
-  description = "The load balancing algorithm used to determine which backend Droplet will be selected by a client."
-}
-
 variable "enable_proxy_protocol" {
   type        = bool
   default     = false
@@ -62,7 +56,6 @@ variable "project_id" {
   type        = string
   default     = null
   description = "The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project."
-
 }
 
 variable "vpc_uuid" {
@@ -126,6 +119,7 @@ variable "firewall" {
 }
 
 variable "enabled_redirect_http_to_https" {
-  type    = string
-  default = ""
+  type        = bool
+  default     = false
+  description = "A boolean value indicating whether HTTP requests to the Load Balancer on port 80 will be redirected to HTTPS on port 443"
 }
