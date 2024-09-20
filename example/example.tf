@@ -11,11 +11,11 @@ locals {
 ##------------------------------------------------
 module "vpc" {
   source      = "cypik/vpc/digitalocean"
-  version     = "1.0.1"
+  version     = "1.0.2"
   name        = local.name
   environment = local.environment
   region      = local.region
-  ip_range    = "10.10.0.0/16"
+  ip_range    = "10.11.0.0/16"
 }
 
 ##------------------------------------------------
@@ -23,13 +23,13 @@ module "vpc" {
 ##------------------------------------------------
 module "droplet" {
   source        = "cypik/droplet/digitalocean"
-  version       = "1.0.1"
+  version       = "1.0.2"
   droplet_count = 2
   name          = local.name
   environment   = local.environment
   region        = local.region
   vpc_uuid      = module.vpc.id
-  ssh_key       = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjrNE0k5e4"
+  ssh_key       = "ssh-rsa AAAAUSsGTc= baldev@baldev"
   user_data     = file("user-data.sh")
 
   inbound_rules = [
@@ -93,7 +93,7 @@ module "load-balancer" {
 
   firewall = [
     {
-      #      deny  = "cidr:0.0.0.0/0"
+      #deny  = "cidr:0.0.0.0/0"
       allow = "cidr:0.0.0.0/0"
     }
   ]

@@ -1,6 +1,6 @@
 module "labels" {
   source      = "cypik/labels/digitalocean"
-  version     = "1.0.1"
+  version     = "1.0.2"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby
@@ -14,7 +14,6 @@ resource "digitalocean_loadbalancer" "main" {
   region                           = var.region
   size                             = var.lb_size
   size_unit                        = var.size_unit
-  algorithm                        = var.algorithm
   redirect_http_to_https           = var.enabled_redirect_http_to_https
   enable_proxy_protocol            = var.enable_proxy_protocol
   enable_backend_keepalive         = var.enable_backend_keepalive

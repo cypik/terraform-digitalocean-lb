@@ -23,7 +23,7 @@ To use this module, you should have Terraform installed and configured for Digit
 
 module "load-balancer" {
   source      = "cypik/load-balancer/digitalocean"
-  version     = "1.0.1"
+  version     = "1.0.2"
   name        = local.name
   environment = local.environment
   region      = local.region
@@ -64,20 +64,20 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.6 |
-| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | >= 2.34.1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.5 |
+| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | >= 2.40.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 2.34.1 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 2.40.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | cypik/labels/digitalocean | 1.0.1 |
+| <a name="module_labels"></a> [labels](#module\_labels) | cypik/labels/digitalocean | 1.0.2 |
 
 ## Resources
 
@@ -89,14 +89,13 @@ This Terraform module is provided under the **MIT** License. Please see the [LIC
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_algorithm"></a> [algorithm](#input\_algorithm) | The load balancing algorithm used to determine which backend Droplet will be selected by a client. | `string` | `"round_robin"` | no |
 | <a name="input_disable_lets_encrypt_dns_records"></a> [disable\_lets\_encrypt\_dns\_records](#input\_disable\_lets\_encrypt\_dns\_records) | A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer. Default value is false. | `bool` | `false` | no |
 | <a name="input_droplet_ids"></a> [droplet\_ids](#input\_droplet\_ids) | A list of the IDs of each droplet to be attached to the Load Balancer. | `list(string)` | `[]` | no |
 | <a name="input_droplet_tag"></a> [droplet\_tag](#input\_droplet\_tag) | The name of a Droplet tag corresponding to Droplets to be assigned to the Load Balancer. | `string` | `null` | no |
 | <a name="input_enable_backend_keepalive"></a> [enable\_backend\_keepalive](#input\_enable\_backend\_keepalive) | A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets. Default value is false. | `bool` | `false` | no |
 | <a name="input_enable_proxy_protocol"></a> [enable\_proxy\_protocol](#input\_enable\_proxy\_protocol) | A boolean value indicating whether PROXY Protocol should be used to pass information from connecting client requests to the backend service. Default value is false. | `bool` | `false` | no |
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | Whether to create the resources. Set to `false` to prevent the module from creating any resources. | `bool` | `true` | no |
-| <a name="input_enabled_redirect_http_to_https"></a> [enabled\_redirect\_http\_to\_https](#input\_enabled\_redirect\_http\_to\_https) | n/a | `string` | `""` | no |
+| <a name="input_enabled_redirect_http_to_https"></a> [enabled\_redirect\_http\_to\_https](#input\_enabled\_redirect\_http\_to\_https) | A boolean value indicating whether HTTP requests to the Load Balancer on port 80 will be redirected to HTTPS on port 443 | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
 | <a name="input_firewall"></a> [firewall](#input\_firewall) | A block containing rules for allowing/denying traffic to the Load Balancer. | `list(map(string))` | `[]` | no |
 | <a name="input_forwarding_rule"></a> [forwarding\_rule](#input\_forwarding\_rule) | A list of forwarding\_rule to be assigned to the Load Balancer. The forwarding\_rule block is documented below. | `list(any)` | `[]` | no |
